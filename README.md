@@ -36,7 +36,7 @@ eucomida-api/
 ## ⚙️ Como Rodar o Projeto
 1. Clone o repositório:
    ```bash
-   git clone https://github.com/seu-usuario/eucomida-api.git
+   git clone https://github.com/juanmramos/eucomida.git
    ```
 2. Entre na pasta do projeto:
    ```bash

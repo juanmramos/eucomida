@@ -7,9 +7,9 @@ services:
     environment:
       POSTGRES_DB: eucomida
       POSTGRES_USER: postgres
-      POSTGRES_PASSWORD: postgres
+      POSTGRES_PASSWORD: admin
     ports:
-      - "5432:5432"
+      - "5433:5432"
 
   app:
     build: .
