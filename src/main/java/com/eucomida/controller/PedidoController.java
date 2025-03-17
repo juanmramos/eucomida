@@ -4,12 +4,16 @@ import com.eucomida.anums.StatusEnum;
 import com.eucomida.converter.PedidoMapper;
 import com.eucomida.dto.PedidoRequest;
 import com.eucomida.dto.PedidoResponse;
+import com.eucomida.dto.PedidoUpadateRequest;
 import com.eucomida.service.PedidoService;
+import java.util.List;
 import java.util.Optional;
 import org.springframework.expression.ExpressionException;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PatchMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -43,5 +47,21 @@ public class PedidoController {
     return Optional.of(mapper.toResponse(pedidoService.buscarPedido(id).get()))
         .map(PedidoResponse::getStatus)
         .orElseThrow(() -> new IllegalArgumentException("Pedido não encontrado"));
+  }
+
+  @PatchMapping("/{id}")
+  @ResponseStatus(HttpStatus.OK)
+  public ResponseEntity<PedidoResponse> atualizarPedido(
+      @PathVariable Long id,
+      @RequestBody StatusEnum request) {
+    PedidoResponse pedidoAtualizado = pedidoService.atualizarPedido(id, request);
+    return ResponseEntity.ok(pedidoAtualizado);
+  }
+
+  @GetMapping
+  @ResponseStatus(HttpStatus.OK)
+  public ResponseEntity<List<PedidoResponse>> listarTodosOsPedidos() {
+    List<PedidoResponse> pedidos = pedidoService.listarTodos();
+    return ResponseEntity.ok(pedidos);
   }
 }

@@ -31,7 +31,9 @@ eucomida-api/
 ## 📌 Endpoints do MVP
 ✔ `POST /auth/login` → Autenticação via OAuth2  
 ✔ `POST /pedidos` → Criar um novo pedido  
-✔ `GET /pedidos/{id}/status` → Consultar status do pedido  
+✔ `GET /pedidos/{id}/status` → Consultar status do pedido
+✔ `PATCH /pedidos/{id}` → Atualizar status do pedido
+✔ `GET /pedidos` → Listar todos os pedidos
 ✔ `GET /usuarios/me` → Consultar informações do usuário autenticado
 ## ⚙️ Como Rodar o Projeto
 1. Clone o repositório:
@@ -57,4 +59,4 @@ eucomida-api/
 - Desenvolver testes automatizados (JUnit, Mockito).
 
 ---
-🛠 **Feito com 💙 por [Seu Nome]**
+🛠 **Feito com 💙 por [Juan Ramos](https://github.com/juanmramos)**  **
