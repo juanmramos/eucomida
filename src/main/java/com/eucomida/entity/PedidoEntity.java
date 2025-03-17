@@ -1,6 +1,9 @@
 package com.eucomida.entity;
 
+import com.eucomida.anums.StatusEnum;
 import jakarta.persistence.Entity;
+import jakarta.persistence.EnumType;
+import jakarta.persistence.Enumerated;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
@@ -14,12 +17,14 @@ public class PedidoEntity {
   private Long id;
 
   private String descricao;
-  private String status; // "Em andamento", "Entregue", "Cancelado"
+
+  @Enumerated(EnumType.STRING)
+  private StatusEnum status; // "Em andamento", "Entregue", "Cancelado"
 
   public PedidoEntity() {
   }
 
-  public PedidoEntity(Long id, String descricao, String status) {
+  public PedidoEntity(Long id, String descricao, StatusEnum status) {
     this.id = id;
     this.descricao = descricao;
     this.status = status;
@@ -41,11 +46,11 @@ public class PedidoEntity {
     this.descricao = descricao;
   }
 
-  public String getStatus() {
+  public StatusEnum getStatus() {
     return status;
   }
 
-  public void setStatus(String status) {
+  public void setStatus(StatusEnum status) {
     this.status = status;
   }
 }
